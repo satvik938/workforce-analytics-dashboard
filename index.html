@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workforce Analytics Dashboard</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+<div class="pf">
+  <header id="header">
+    <p class="pf-eyebrow">Portfolio project · Workforce &amp; HR Analytics</p>
+    <h1 class="pf-title">Workforce Health — Headcount, Turnover &amp; Hiring</h1>
+    <div class="pf-meta"><span class="pf-tag">Sample data</span><span>12 months: Nov 2025 – Oct 2026</span><span>7 departments · ~480 employees</span></div>
+    <p class="pf-lede" id="takeaway" data-read lang="en">Headcount ended October at <b data-draw="hc" data-source="kpis" data-field="headcount" data-row="0">—</b>. Annual turnover ran at <b data-draw="to" data-source="kpis" data-field="turnover_12m_pct" data-row="0">—</b>, and <b data-draw="vol" data-source="kpis" data-field="voluntary_share_pct" data-row="0">—</b> of exits were voluntary, concentrated in the frontline Customer Service, Operations and Warehouse teams.</p>
+  </header>
+
+  <section class="pf-kpis" id="kpis" aria-label="Key figures">
+    <div class="pf-card" id="kpi-hc"><p class="pf-kpi-label">Headcount · end of Oct</p><p class="pf-kpi-val" data-draw="k_hc" data-source="kpis" data-field="headcount" data-row="0">—</p><p class="pf-kpi-foot"><span data-draw="c_hc" data-source="kpis" data-field="headcount_chg" data-row="0">—</span><span>since end of Jul</span></p></div>
+    <div class="pf-card" id="kpi-to"><p class="pf-kpi-label">Turnover · last 12 months</p><p class="pf-kpi-val" data-draw="k_to" data-source="kpis" data-field="turnover_12m_pct" data-row="0">—</p><p class="pf-kpi-foot"><span>Separations ÷ avg headcount</span></p></div>
+    <div class="pf-card" id="kpi-hires"><p class="pf-kpi-label">Hires · last 3 months</p><p class="pf-kpi-val" data-draw="k_hi" data-source="kpis" data-field="hires" data-row="0">—</p><p class="pf-kpi-foot"><span data-draw="c_hi" data-source="kpis" data-field="hires_chg_pct" data-row="0">—</span><span>vs prior 3 months</span></p></div>
+    <div class="pf-card" id="kpi-sep"><p class="pf-kpi-label">Separations · last 3 months</p><p class="pf-kpi-val" data-draw="k_sep" data-source="kpis" data-field="separations" data-row="0">—</p><p class="pf-kpi-foot"><span data-draw="c_sep" data-source="kpis" data-field="separations_chg_pct" data-row="0">—</span><span>vs prior 3 months</span></p></div>
+    <div class="pf-card" id="kpi-ttf"><p class="pf-kpi-label">Avg days to fill</p><p class="pf-kpi-val" data-draw="k_ttf" data-source="kpis" data-field="days_to_fill" data-row="0">—</p><p class="pf-kpi-foot"><span data-draw="c_ttf" data-source="kpis" data-field="days_to_fill_chg" data-row="0">—</span><span>days vs prior 3 months</span></p></div>
+    <div class="pf-card" id="kpi-eng"><p class="pf-kpi-label">Engagement score (1–5)</p><p class="pf-kpi-val" data-draw="k_eng" data-source="kpis" data-field="engagement" data-row="0">—</p><p class="pf-kpi-foot"><span>Latest pulse survey, active staff</span></p></div>
+  </section>
+
+  <div class="pf-grid">
+    <section class="pf-card" id="flow">
+      <h2 class="pf-h">Hires vs separations by month</h2>
+      <p class="pf-sub">Gaps above the separations line grew headcount</p>
+      <div class="pf-chart" data-draw="flowChart" data-source="monthly"></div>
+    </section>
+    <section class="pf-card" id="turnover-month">
+      <h2 class="pf-h">Monthly turnover rate</h2>
+      <p class="pf-sub">Separations ÷ average headcount in the month</p>
+      <div class="pf-chart" data-draw="toChart" data-source="monthly"></div>
+    </section>
+  </div>
+
+  <div class="pf-grid">
+    <section class="pf-card" id="dept-turnover">
+      <h2 class="pf-h">12-month turnover by department</h2>
+      <p class="pf-sub">Departments above the 20% company benchmark are highlighted</p>
+      <div class="pf-chart pf-short" data-draw="deptChart" data-source="departments"></div>
+    </section>
+    <section class="pf-card" id="tenure">
+      <h2 class="pf-h">Tenure mix of active employees</h2>
+      <p class="pf-sub">About a quarter of staff joined within the last year</p>
+      <div class="pf-chart pf-short" data-draw="tenureChart" data-source="tenure"></div>
+    </section>
+  </div>
+
+  <section class="pf-card" id="departments">
+    <h2 class="pf-h">Department detail</h2>
+    <p class="pf-sub">Active headcount at end of Oct 2026; separations and time-to-fill over the last 12 months</p>
+    <div class="pf-tablewrap">
+      <table class="pf-table" data-source="departments" data-row-key="department">
+        <thead><tr><th data-field="department">Department</th><th class="num" data-field="headcount">Headcount</th><th class="num" data-field="separations_12m">Separations</th><th class="num" data-field="turnover_12m_pct">Turnover</th><th class="num" data-field="avg_days_to_fill">Days to fill</th><th class="num" data-field="engagement">Engagement</th><th class="num" data-field="avg_salary">Avg salary</th></tr></thead>
+        <tbody data-draw="deptRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details class="pf-about" id="about">
+    <summary>About this dashboard: data, metrics and method</summary>
+    <dl>
+      <dt>Business question</dt><dd>Where are we losing people, how fast are we replacing them, and which teams need retention attention?</dd>
+      <dt>Data</dt><dd>~590 synthetic employee records (hire and exit dates, department, salary, engagement) for a mid-size distribution company. Created for this portfolio; no real people.</dd>
+      <dt>Turnover rate</dt><dd>Separations in the period ÷ average headcount in the period.</dd>
+      <dt>Days to fill</dt><dd>Days from requisition opening to accepted offer, averaged over hires in the period.</dd>
+      <dt>Engagement</dt><dd>Average pulse-survey score on a 1–5 scale for active employees.</dd>
+      <dt>Method</dt><dd>Python (pandas) to build monthly snapshots from event dates; KPI logic mirrors SQL window functions; visualized with D3.</dd>
+    </dl>
+    <p>Recommended actions from this view: run stay interviews in Customer Service and Warehouse (lowest engagement), review shift scheduling and supervisor ratios in Operations, and pre-build talent pipelines for IT and Finance where roles take 30+ days to fill.</p>
+  </details>
+  <p class="pf-foot">Portfolio project built with Python (pandas) and D3.js · All data is synthetic. Source code and data are in this repository.</p>
+</div>
+<script src="d3.min.js"></script>
+<script src="data.js"></script>
+<script src="dash-lite.js"></script>
+<script src="charts.js"></script>
+<script>
+  const f = DC.f;
+  dash.draw('hc', DC.cell('kpis', 'headcount', f.int));
+  dash.draw('to', DC.cell('kpis', 'turnover_12m_pct', f.pct1));
+  dash.draw('vol', DC.cell('kpis', 'voluntary_share_pct', f.pct1));
+  dash.draw('k_hc', DC.cell('kpis', 'headcount', f.int));
+  dash.draw('c_hc', DC.chip('kpis', 'headcount_chg', f.sNum(','), true));
+  dash.draw('k_to', DC.cell('kpis', 'turnover_12m_pct', f.pct1));
+  dash.draw('k_hi', DC.cell('kpis', 'hires', f.int));
+  dash.draw('c_hi', DC.chip('kpis', 'hires_chg_pct', f.sPct, true));
+  dash.draw('k_sep', DC.cell('kpis', 'separations', f.int));
+  dash.draw('c_sep', DC.chip('kpis', 'separations_chg_pct', f.sPct, false));
+  dash.draw('k_ttf', DC.cell('kpis', 'days_to_fill', f.num('.1f')));
+  dash.draw('c_ttf', DC.chip('kpis', 'days_to_fill_chg', f.sNum('.1f'), false));
+  dash.draw('k_eng', DC.cell('kpis', 'engagement', f.num('.2f')));
+
+  dash.draw('flowChart', (el) => {
+    const rows = DC.rowsOf('monthly', el); if (!rows) return;
+    const c = dash.colors || [];
+    DC.line(el, rows, { x: 'month', series: [{ field: 'hires', label: 'Hires', color: c[0] }, { field: 'separations', label: 'Separations', color: c[1] }], fmt: f.int, yMin: 0, aria: 'Line chart of monthly hires and separations, Nov 2025 to Oct 2026' });
+  });
+  dash.draw('toChart', (el) => {
+    const rows = DC.rowsOf('monthly', el); if (!rows) return;
+    DC.bars(el, rows, { x: 'month', y: 'turnover_pct', fmt: (v) => d3.format('.1f')(v) + '%', axisFmt: (v) => d3.format('.0f')(v) + '%', label: 'Turnover', colorIndex: 2, aria: 'Bar chart of monthly turnover rate' });
+  });
+  dash.draw('deptChart', (el) => {
+    const rows = DC.rowsOf('departments', el); if (!rows) return;
+    DC.hbar(el, rows.slice().sort((a, b) => b.turnover_12m_pct - a.turnover_12m_pct), { label: 'department', value: 'turnover_12m_pct', valueLabel: 'Turnover', fmt: f.pct1,
+      ref: { value: 20, label: '20% benchmark' }, critAbove: true,
+      extra: [{ field: 'headcount', label: 'Headcount', fmt: f.int }, { field: 'separations_12m', label: 'Separations', fmt: f.int }, { field: 'engagement', label: 'Engagement', fmt: f.num('.2f') }],
+      aria: 'Horizontal bar chart of 12-month turnover by department with a 20% benchmark line' });
+  });
+  dash.draw('tenureChart', (el) => {
+    const rows = DC.rowsOf('tenure', el); if (!rows) return;
+    DC.hbar(el, rows, { label: 'tenure_band', value: 'employees', valueLabel: 'Employees', fmt: f.int, colorIndex: 1,
+      extra: [{ field: 'share_pct', label: 'Share', fmt: f.pct1 }], aria: 'Horizontal bar chart of active employees by tenure band' });
+  });
+  dash.draw('deptRows', DC.tbody('departments', [
+    { field: 'department' }, { field: 'headcount', fmt: f.int, num: true }, { field: 'separations_12m', fmt: f.int, num: true },
+    { field: 'turnover_12m_pct', fmt: f.pct1, num: true }, { field: 'avg_days_to_fill', fmt: f.num('.1f'), num: true },
+    { field: 'engagement', fmt: f.num('.2f'), num: true }, { field: 'avg_salary', fmt: f.usd, num: true }
+  ]));
+</script>
+
+</main>
+</body>
+</html>

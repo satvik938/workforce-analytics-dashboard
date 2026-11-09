@@ -1,0 +1,8 @@
+department,headcount,avg_salary,engagement,separations_12m,turnover_12m_pct,avg_days_to_fill
+Operations,188,58500,3.79,47,25.0,20.1
+Warehouse,147,41000,3.44,36,24.5,21.6
+Sales,48,71300,3.87,7,14.6,15.5
+Customer Service,41,42900,3.57,15,36.6,19.1
+Finance,24,75700,3.76,3,12.5,33.2
+IT,19,88100,3.66,2,10.5,36.7
+HR,12,68100,3.96,0,0.0,13.0

@@ -1,0 +1,62 @@
+/* Design tokens (light + dark) used by style.css and charts.js */
+:root {
+  --font-anthropic-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-anthropic-serif: Georgia, "Times New Roman", serif;
+  --cds-font-size-caption: 12.5px;
+  --cds-font-size-body: 14.5px;
+  --cds-font-size-heading: 16px;
+  --cds-font-weight-medium: 600;
+  --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 16px; --cds-gap-lg: 24px; --cds-gap-xl: 40px;
+  --cds-pad-lg: 18px;
+  --cds-radius: 10px;
+
+  --color-bg: #f7f6f2;
+  --color-panel: #ffffff;
+  --color-fg: #1f1e1c;
+  --color-fg-muted: #6b6862;
+  --color-border-line: #e3e0d8;
+  --color-ok: #1f7a4d;
+  --color-bad: #b3261e;
+  --cds-text-secondary: #6b6862;
+  --cds-chart-grid: #ece9e2;
+  --cds-chart-axis: #c9c5bb;
+  --cds-chart-reference: #8a867d;
+  --cds-chart-status-critical: #d1495b;
+  --cds-surface-popover: #ffffff;
+  --cds-border: #d9d5cc;
+  --cds-shadow-popover: 0 4px 16px rgba(0, 0, 0, .10);
+  --series-1: #2f6db5;
+  --series-2: #d9822b;
+  --series-3: #2a9d8f;
+  --series-4: #7b5ea7;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #191918;
+    --color-panel: #232321;
+    --color-fg: #ecebe7;
+    --color-fg-muted: #a7a49c;
+    --color-border-line: #3a3936;
+    --color-ok: #5cc28c;
+    --color-bad: #f2786d;
+    --cds-text-secondary: #a7a49c;
+    --cds-chart-grid: #302f2c;
+    --cds-chart-axis: #52504b;
+    --cds-chart-reference: #9a978f;
+    --cds-chart-status-critical: #f0727f;
+    --cds-surface-popover: #2c2c29;
+    --cds-border: #45433f;
+    --cds-shadow-popover: 0 4px 16px rgba(0, 0, 0, .45);
+    --series-1: #6ea3e6;
+    --series-2: #f0a35a;
+    --series-3: #4fc1b2;
+    --series-4: #a98fd4;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); -webkit-font-smoothing: antialiased; }
+.page { max-width: 1180px; margin: 0 auto; padding: 32px 16px 48px; }
+.dash-skeleton { color: transparent; }
+.pf-foot { margin-top: var(--cds-gap-lg); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pf-foot a { color: inherit; }

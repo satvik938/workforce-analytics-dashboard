@@ -1,0 +1,6 @@
+window.DASH_DATA = {
+ "kpis": "window,compare,headcount,headcount_chg,hires,hires_chg_pct,separations,separations_chg_pct,turnover_12m_pct,voluntary_share_pct,days_to_fill,days_to_fill_chg,engagement\nAug\u2013Oct 2026,May\u2013Jul 2026,479,4,24,-25.0,20,-25.9,23.4,79.1,21.5,1.5,3.67\n",
+ "monthly": "month,headcount,hires,separations,voluntary,involuntary,turnover_pct,avg_days_to_fill\n2025-11,460,16,9,7,2,1.97,20.3\n2025-12,459,8,9,6,3,1.96,18.4\n2026-01,465,17,11,8,3,2.38,22.5\n2026-02,466,11,10,8,2,2.15,22.0\n2026-03,468,15,13,11,2,2.78,21.7\n2026-04,470,13,11,9,2,2.35,19.8\n2026-05,471,13,12,10,2,2.55,17.0\n2026-06,475,10,6,5,1,1.27,24.0\n2026-07,475,9,9,8,1,1.89,19.6\n2026-08,475,4,4,2,2,0.84,20.8\n2026-09,476,13,12,9,3,2.52,21.2\n2026-10,479,7,4,4,0,0.84,22.3\n",
+ "departments": "department,headcount,avg_salary,engagement,separations_12m,turnover_12m_pct,avg_days_to_fill\nOperations,188,58500,3.79,47,25.0,20.1\nWarehouse,147,41000,3.44,36,24.5,21.6\nSales,48,71300,3.87,7,14.6,15.5\nCustomer Service,41,42900,3.57,15,36.6,19.1\nFinance,24,75700,3.76,3,12.5,33.2\nIT,19,88100,3.66,2,10.5,36.7\nHR,12,68100,3.96,0,0.0,13.0\n",
+ "tenure": "tenure_band,employees,share_pct\n< 1 yr,121,25.3\n1\u20132 yrs,110,23.0\n2\u20135 yrs,153,31.9\n5\u201310 yrs,73,15.2\n10+ yrs,22,4.6\n"
+};
